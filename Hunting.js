@@ -10,7 +10,7 @@ window.onload = function () {
 
 document.onclick = function (event) {
     // insures that the user clicks within 30px are registered, if not goes to else.
-    if (event.pageX > mathX - 30 && event.pageX < mathX + 30 && event.pageY > mathY - 30 && event.pageY < mathY + 30) {
+    if (event.pageX > mathX - 60 && event.pageX < mathX + 60 && event.pageY > mathY - 60 && event.pageY < mathY + 60) {
         c = confirm("You've won, try again?")
         if (c == true) {
             GenerateTreasure();
@@ -44,17 +44,17 @@ function GenerateTreasure() {
 
 function GuideUser(coordX, CoordY) {
     message = "";
-    if (coordX < mathX - 30) {
+    if (coordX < mathX - 60) {
         message += "Right ";
     }
-    else if (coordX > mathX + 30) {
+    else if (coordX > mathX + 60) {
         message += "Left ";
     }
 
-    if (CoordY < mathY - 30) {
+    if (CoordY < mathY - 60) {
         message += "Down";
     }
-    else if (CoordY > mathY + 30) {
+    else if (CoordY > mathY + 60) {
         message += "Up";
     }
 
