@@ -9,7 +9,6 @@ window.onload = function () {
 }
 
 document.onclick = function (event) {
-
     // insures that the user clicks within 30px are registered, if not goes to else.
     if (event.pageX > mathX - 30 && event.pageX < mathX + 30 && event.pageY > mathY - 30 && event.pageY < mathY + 30) {
         c = confirm("You've won, try again?")
@@ -27,9 +26,11 @@ document.onclick = function (event) {
         }
         else {
             wrongCount++;
-            alert(wrongCount);
+            alert(wrongCount + " wrong");
         }
     }
+
+    GuideUser(event.pageX, event.pageY);
 }
 
 // Generates new coorindates for the cross
@@ -39,6 +40,25 @@ function GenerateTreasure() {
 
     x.style.left = mathX + "px";
     x.style.top = mathY + "px";
+}
+
+function GuideUser(coordX, CoordY) {
+    message = "";
+    if (coordX < mathX - 30) {
+        message += "Right ";
+    }
+    else if (coordX > mathX + 30) {
+        message += "Left ";
+    }
+
+    if (CoordY < mathY - 30) {
+        message += "Down";
+    }
+    else if (CoordY > mathY + 30) {
+        message += "Up";
+    }
+
+    alert(message);
 }
 
 // Turns the x invsibile for testing purposes
